@@ -1,0 +1,4 @@
+SimpleITK
+nibabel
+medpy
+scikit-image
