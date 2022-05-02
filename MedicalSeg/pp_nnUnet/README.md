@@ -19,16 +19,79 @@
 
 ## 快速开始
 ### 第一步：克隆本项目
-git clone https://github.com/YellowLight021/pp_nnUnet
-cd MedicalSeg 
-cd pp_nnUnet
+#### git clone https://github.com/YellowLight021/pp_nnUnet
+#### cd MedicalSeg 
+#### cd pp_nnUnet/nnunet
 
--|data
--|work
--README.MD
--xxx.ipynb
 ```
-## 使用方式
-> 相信你的Fans已经看到这里了，快告诉他们如何快速上手这个项目吧~  
-A：在AI Studio上[运行本项目](https://aistudio.baidu.com/aistudio/usercenter)  
-B：此处由项目作者进行撰写使用方式。
+-batchgenerators  用于数据增强的包
+-dataset_cnversion 用于将数据转化为nnunet能够识别的结构
+-evaluation    用于evaluation的包
+-experiment_planning 用于生成实验计划的包
+-inference    用于结果推演的包
+-network_architecture  用于根据plan文件生成对应网络模型的包
+-postprocessing 用于后处理
+-preprocessing 用于刚开始数据规整比如crop等操作
+-run  训练代码入口处
+-training  用于训练的一些基本配置，比如数据加载和损失函数构建等
+-utilities  一些辅助性功能的代码
+-configuration 基础的配置
+-paths.py  用于设置关键路径的，这里对刚开始使用nnunet框架的人比较重要，下面会详细介绍
+```
+## 第二步：安装pp_nnUnet下的必要第三方库
+pip install -r requirements.txt
+
+## 第三步：准备工作
+[MSD-Lung ](https://drive.google.com/drive/folders/1HqEgzS8BV2c7xYNrZdEAnrHk7osJJ–2) 
+
+1、下载解压数据集到你觉得合适的位置。（如解压到f盘，数据集就是F:\Task05_Prostate）
+
+2、建立一个文件夹Dataset。在该文件夹下在建立nnUNet_preprocessed、nnUNet_raw、nnUNet_trained_models文件夹
+
+3、在如上建立的nnUNet_raw文件夹下面在建立nnUNet_cropped_data、nnUNet_raw_data两个文件夹
+
+## 第四步：数据格式转换
+
+1、配置路径信息，将paths.py文件中的路径改成，刚刚新建Dataset文件夹的对应路径。如图![images](images/path_config.png)  
+
+2、cd 到experiment_planning文件夹下。
+
+3、执行命令：python nnUNet_convert_decathlon_task.py -i F:\Task06_Lung（这个是你解压数据集的位置）
+
+4、执行成功后，刚刚建立的Dataset\nnUnet_raw\nnUNet_raw_data文件夹下应该出现了Task006_Lung文件夹。
+
+## 第五步：训练计划制定以及preprocessing
+
+1、还是在到experiment_planning文件夹下。
+
+2、执行命令：python nnUNet_plan_and_preprocess.py -t 6
+
+3、执行成功后，Dataset\nnUnet_raw\nnUNet_preprocessed下应该出现Task006_Lung文件夹。
+
+## 第六步：模型训练
+
+1、需要cd到run文件夹下。
+
+2、2d模式unet训练命令：python run_training.py 2d nnUNetTrainerV2 6 all -c --npz
+
+3、3dlower模型unet训练：python run_training.py 3d_lowres nnUNetTrainerV2 6 all
+
+4、3DUnet-cascade模型训练：python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 all --npz
+
+5、注意训练3DUnet-cascade模型时候必须要先训练3dlower，3dlower训练完成后会输出predict的文件作为cascade的补充输入。
+
+6、模型的训练日志都放在log文件夹下了。模型参数的链接：
+
+## 第七步：模型inference
+
+1、需要cd到inference文件夹下。
+
+2、进行3d_cascade_fullres的inference：python predict_simple.py -i Dataset/nnUnet_raw/nnUNet_raw_data/Task006_Lung/imagesTs -o imagesTs_infer -t 6 -m 3d_cascade_fullres -f all -z
+
+3、也可以进行2d模式的inference：python predict_simple.py -i Dataset/nnUnet_raw/nnUNet_raw_data/Task006_Lung/imagesTs -o imagesTs_infer -t 6 -m 2d -f all -z
+
+4、对3d_cascade_fullres和2d的预测结果进行ensemble，执行命令：python ensemble_predictions.py
+
+
+## 在AI Studio上
+
