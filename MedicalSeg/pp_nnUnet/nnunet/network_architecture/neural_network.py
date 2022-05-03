@@ -640,8 +640,8 @@ class SegmentationNetwork(NeuralNetwork):
                 gaussian_importance_map = self._gaussian_2d
 
             gaussian_importance_map = paddle.to_tensor(gaussian_importance_map)
-            if paddle.fluid.is_compiled_with_cuda():
-                gaussian_importance_map = gaussian_importance_map.cuda(self.get_device(), non_blocking=True)
+            # if paddle.fluid.is_compiled_with_cuda():
+            #     gaussian_importance_map = gaussian_importance_map.cuda(self.get_device(), non_blocking=True)
 
         else:
             gaussian_importance_map = None
