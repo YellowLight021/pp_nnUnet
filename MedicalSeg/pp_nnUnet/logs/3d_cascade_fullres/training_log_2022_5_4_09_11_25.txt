@@ -1,0 +1,272 @@
+Starting... 
+2022-05-04 09:11:25.604269: TRAINING KEYS:
+ odict_keys(['lung_001', 'lung_003', 'lung_004', 'lung_005', 'lung_006', 'lung_009', 'lung_010', 'lung_014', 'lung_015', 'lung_016', 'lung_018', 'lung_020', 'lung_022', 'lung_023', 'lung_025', 'lung_026', 'lung_027', 'lung_028', 'lung_029', 'lung_031', 'lung_033', 'lung_034', 'lung_036', 'lung_037', 'lung_038', 'lung_041', 'lung_042', 'lung_043', 'lung_044', 'lung_045', 'lung_046', 'lung_047', 'lung_048', 'lung_049', 'lung_051', 'lung_053', 'lung_054', 'lung_055', 'lung_057', 'lung_058', 'lung_059', 'lung_061', 'lung_062', 'lung_064', 'lung_065', 'lung_066', 'lung_069', 'lung_070', 'lung_071', 'lung_073', 'lung_074', 'lung_075', 'lung_078', 'lung_079', 'lung_080', 'lung_081', 'lung_083', 'lung_084', 'lung_086', 'lung_092', 'lung_093', 'lung_095', 'lung_096']) 
+2022-05-04 09:11:25.604744: VALIDATION KEYS:
+ odict_keys(['lung_001', 'lung_003', 'lung_004', 'lung_005', 'lung_006', 'lung_009', 'lung_010', 'lung_014', 'lung_015', 'lung_016', 'lung_018', 'lung_020', 'lung_022', 'lung_023', 'lung_025', 'lung_026', 'lung_027', 'lung_028', 'lung_029', 'lung_031', 'lung_033', 'lung_034', 'lung_036', 'lung_037', 'lung_038', 'lung_041', 'lung_042', 'lung_043', 'lung_044', 'lung_045', 'lung_046', 'lung_047', 'lung_048', 'lung_049', 'lung_051', 'lung_053', 'lung_054', 'lung_055', 'lung_057', 'lung_058', 'lung_059', 'lung_061', 'lung_062', 'lung_064', 'lung_065', 'lung_066', 'lung_069', 'lung_070', 'lung_071', 'lung_073', 'lung_074', 'lung_075', 'lung_078', 'lung_079', 'lung_080', 'lung_081', 'lung_083', 'lung_084', 'lung_086', 'lung_092', 'lung_093', 'lung_095', 'lung_096']) 
+2022-05-04 09:11:30.309877: loading checkpoint /home/aistudio/Dataset/nnUnet_trained_models/nnUNet/3d_cascade_fullres/Task006_Lung/nnUNetTrainerV2CascadeFullRes__nnUNetPlansv2.1/all/model_final_checkpoint.model train= True 
+2022-05-04 09:11:30.657052: lr: 0.000874 
+2022-05-04 09:11:35.768828: Unable to plot network architecture: 
+2022-05-04 09:11:35.769123: No module named 'hiddenlayer' 
+2022-05-04 09:11:35.769230: 
+printing the network instead:
+ 
+2022-05-04 09:11:35.769315: Generic_UNet(
+  (conv_blocks_localization): LayerList(
+    (0): Sequential(
+      (0): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(640, 320, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=320, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+      (1): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(320, 320, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=320, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+    )
+    (1): Sequential(
+      (0): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(512, 256, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=256, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+      (1): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(256, 256, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=256, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+    )
+    (2): Sequential(
+      (0): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(256, 128, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=128, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+      (1): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(128, 128, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=128, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+    )
+    (3): Sequential(
+      (0): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(128, 64, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=64, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+      (1): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(64, 64, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=64, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+    )
+    (4): Sequential(
+      (0): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(64, 32, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=32, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+      (1): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(32, 32, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=32, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+    )
+  )
+  (conv_blocks_context): LayerList(
+    (0): StackedConvLayers(
+      (blocks): Sequential(
+        (0): ConvDropoutNormNonlin(
+          (conv): Conv3D(2, 32, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=32, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+        (1): ConvDropoutNormNonlin(
+          (conv): Conv3D(32, 32, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=32, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+      )
+    )
+    (1): StackedConvLayers(
+      (blocks): Sequential(
+        (0): ConvDropoutNormNonlin(
+          (conv): Conv3D(32, 64, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=64, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+        (1): ConvDropoutNormNonlin(
+          (conv): Conv3D(64, 64, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=64, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+      )
+    )
+    (2): StackedConvLayers(
+      (blocks): Sequential(
+        (0): ConvDropoutNormNonlin(
+          (conv): Conv3D(64, 128, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=128, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+        (1): ConvDropoutNormNonlin(
+          (conv): Conv3D(128, 128, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=128, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+      )
+    )
+    (3): StackedConvLayers(
+      (blocks): Sequential(
+        (0): ConvDropoutNormNonlin(
+          (conv): Conv3D(128, 256, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=256, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+        (1): ConvDropoutNormNonlin(
+          (conv): Conv3D(256, 256, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=256, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+      )
+    )
+    (4): StackedConvLayers(
+      (blocks): Sequential(
+        (0): ConvDropoutNormNonlin(
+          (conv): Conv3D(256, 320, kernel_size=[3, 3, 3], stride=[2, 2, 2], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=320, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+        (1): ConvDropoutNormNonlin(
+          (conv): Conv3D(320, 320, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+          (instnorm): InstanceNorm3D(num_features=320, epsilon=1e-05)
+          (lrelu): LeakyReLU(negative_slope=0.01)
+        )
+      )
+    )
+    (5): Sequential(
+      (0): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(320, 320, kernel_size=[3, 3, 3], stride=[1, 2, 2], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=320, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+      (1): StackedConvLayers(
+        (blocks): Sequential(
+          (0): ConvDropoutNormNonlin(
+            (conv): Conv3D(320, 320, kernel_size=[3, 3, 3], padding=[1, 1, 1], data_format=NCDHW)
+            (instnorm): InstanceNorm3D(num_features=320, epsilon=1e-05)
+            (lrelu): LeakyReLU(negative_slope=0.01)
+          )
+        )
+      )
+    )
+  )
+  (td): LayerList()
+  (tu): LayerList(
+    (0): Conv3DTranspose(320, 320, kernel_size=[1, 2, 2], stride=[1, 2, 2], data_format=NCDHW)
+    (1): Conv3DTranspose(320, 256, kernel_size=[2, 2, 2], stride=[2, 2, 2], data_format=NCDHW)
+    (2): Conv3DTranspose(256, 128, kernel_size=[2, 2, 2], stride=[2, 2, 2], data_format=NCDHW)
+    (3): Conv3DTranspose(128, 64, kernel_size=[2, 2, 2], stride=[2, 2, 2], data_format=NCDHW)
+    (4): Conv3DTranspose(64, 32, kernel_size=[2, 2, 2], stride=[2, 2, 2], data_format=NCDHW)
+  )
+  (seg_outputs): LayerList(
+    (0): Conv3D(320, 2, kernel_size=[1, 1, 1], data_format=NCDHW)
+    (1): Conv3D(256, 2, kernel_size=[1, 1, 1], data_format=NCDHW)
+    (2): Conv3D(128, 2, kernel_size=[1, 1, 1], data_format=NCDHW)
+    (3): Conv3D(64, 2, kernel_size=[1, 1, 1], data_format=NCDHW)
+    (4): Conv3D(32, 2, kernel_size=[1, 1, 1], data_format=NCDHW)
+  )
+) 
+2022-05-04 09:11:35.771966: 
+ 
+2022-05-04 09:11:35.772128: 
+epoch:  70 
+2022-05-04 09:44:12.955226: train loss : 0.2954 
+2022-05-04 09:45:41.820763: validation loss: 0.3077 
+2022-05-04 09:45:41.821318: Average global foreground Dice: [0.7243] 
+2022-05-04 09:45:41.821465: (interpret this as an estimate for the Dice of the different classes. This is not exact.) 
+2022-05-04 09:45:43.143057: lr: 0.000715 
+2022-05-04 09:45:43.143399: This epoch took 2047.371192 s
+ 
+2022-05-04 09:45:43.143514: 
+epoch:  71 
+2022-05-04 10:18:47.029772: train loss : 0.2824 
+2022-05-04 10:20:14.914335: validation loss: 0.2953 
+2022-05-04 10:20:14.914895: Average global foreground Dice: [0.7364] 
+2022-05-04 10:20:14.915040: (interpret this as an estimate for the Dice of the different classes. This is not exact.) 
+2022-05-04 10:20:15.928146: lr: 0.000552 
+2022-05-04 10:20:15.928461: This epoch took 2072.784876 s
+ 
+2022-05-04 10:20:15.928545: 
+epoch:  72 
+2022-05-04 10:52:38.713588: train loss : 0.3017 
+2022-05-04 10:54:07.991300: validation loss: 0.2679 
+2022-05-04 10:54:07.991879: Average global foreground Dice: [0.7478] 
+2022-05-04 10:54:07.992023: (interpret this as an estimate for the Dice of the different classes. This is not exact.) 
+2022-05-04 10:54:09.011715: lr: 0.000383 
+2022-05-04 10:54:09.012044: This epoch took 2033.083444 s
+ 
+2022-05-04 10:54:09.012115: 
+epoch:  73 
+2022-05-04 11:26:36.725204: train loss : 0.2940 
+2022-05-04 11:28:03.056442: validation loss: 0.3128 
+2022-05-04 11:28:03.057039: Average global foreground Dice: [0.7114] 
+2022-05-04 11:28:03.057201: (interpret this as an estimate for the Dice of the different classes. This is not exact.) 
+2022-05-04 11:28:04.098595: lr: 0.000205 
+2022-05-04 11:28:04.098933: This epoch took 2035.086762 s
+ 
+2022-05-04 11:28:04.099012: 
+epoch:  74 
+2022-05-04 12:01:20.724347: train loss : 0.2913 
+2022-05-04 12:02:48.115340: validation loss: 0.3049 
+2022-05-04 12:02:48.115916: Average global foreground Dice: [0.7294] 
+2022-05-04 12:02:48.116073: (interpret this as an estimate for the Dice of the different classes. This is not exact.) 
+2022-05-04 12:02:49.151023: lr: 0.0 
+2022-05-04 12:02:49.151370: This epoch took 2085.052273 s
+ 
+2022-05-04 12:02:49.280142: saving checkpoint... 
+2022-05-04 12:02:49.775036: done, saving took 0.62 seconds 

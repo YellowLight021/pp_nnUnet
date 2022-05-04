@@ -99,5 +99,9 @@ pip install -r requirements.txt
 4、对3d_cascade_fullres和2d的预测结果进行ensemble，执行命令：python ensemble_predictions.py -f imagesTs_infer_2d imagesTs_infer_cascade -o ensemble_2d_cascade_infer
 
 
-## 在AI Studio上
+## 在AI Studio上[运行本项目](项目“nnUnet调试”共享链接(有效期三天)：https://aistudio.baidu.com/studio/project/partial/verify/3874882/2506bf5003b64facb015a538c99142f2) 
+1、fork项目后按照markdown提示按照顺序自行运行
+
+
+
 
