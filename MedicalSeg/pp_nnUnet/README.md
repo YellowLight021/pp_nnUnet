@@ -80,17 +80,23 @@ pip install -r requirements.txt
 
 5、注意训练3DUnet-cascade模型时候必须要先训练3dlower，3dlower训练完成后会输出predict的文件作为cascade的补充输入。
 
-6、模型的训练日志都放在log文件夹下了。模型参数的链接：
+6、unet2d模型训练了70个epoch超过paper中的指标（读者可以自己更改在模型训练的回合数training\network_training文件夹下的nnUnetTrainerV2.py中更改self.max_num_epochs）
+
+7、unet3dlower训练了55个epoch，然后cascade模型训练了60个epoch超过paper中的指标（可以更改training\network_training中nnUnetTrainerV2.py和nnUNetTrainerV2_CascadeFullRes.py中self.max_num_epochs参数）
+
+8、模型的训练日志都放在log文件夹下了。模型参数的链接：链接：https://pan.baidu.com/s/1yeVGV8dcXc4-GdoaCu6Wwg 
+提取码：nm5d 
+--来自百度网盘超级会员V6的分享
 
 ## 第七步：模型inference
 
 1、需要cd到inference文件夹下。
 
-2、进行3d_cascade_fullres的inference：python predict_simple.py -i Dataset/nnUnet_raw/nnUNet_raw_data/Task006_Lung/imagesTs -o imagesTs_infer -t 6 -m 3d_cascade_fullres -f all -z
+2、进行3d_cascade_fullres的inference：python predict_simple.py -i Dataset/nnUnet_raw/nnUNet_raw_data/Task006_Lung/imagesTs -o imagesTs_infer_cascade -t 6 -m 3d_cascade_fullres -f all -z
 
-3、也可以进行2d模式的inference：python predict_simple.py -i Dataset/nnUnet_raw/nnUNet_raw_data/Task006_Lung/imagesTs -o imagesTs_infer -t 6 -m 2d -f all -z
+3、也可以进行2d模式的inference：python predict_simple.py -i Dataset/nnUnet_raw/nnUNet_raw_data/Task006_Lung/imagesTs -o imagesTs_infer_2d -t 6 -m 2d -f all -z
 
-4、对3d_cascade_fullres和2d的预测结果进行ensemble，执行命令：python ensemble_predictions.py
+4、对3d_cascade_fullres和2d的预测结果进行ensemble，执行命令：python ensemble_predictions.py -f imagesTs_infer_2d imagesTs_infer_cascade -o ensemble_2d_cascade_infer
 
 
 ## 在AI Studio上

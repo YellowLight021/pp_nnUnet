@@ -337,5 +337,5 @@ class nnUNetTrainerV2CascadeFullRes(nnUNetTrainerV2):
                     raise e
 
         # restore network deep supervision mode
-        self.network.train(current_mode)
+        self.network.train()
         self.network.do_ds = ds
