@@ -1,6 +1,6 @@
 _base_: '../_base_/global_configs.yml'
 
-batch_size: 2
+batch_size: 6
 iters: 15000
 
 train_dataset:
@@ -24,7 +24,7 @@ val_dataset:
   num_classes: 3
   transforms: []
   mode: val
-  dataset_json_path: "D:/data/lung_coronavirus/lung_coronavirus_raw/dataset.json"
+  dataset_json_path: "data/lung_coronavirus/lung_coronavirus_raw/dataset.json"
 
 optimizer:
   type: sgd

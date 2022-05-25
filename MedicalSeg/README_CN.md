@@ -12,18 +12,13 @@ MedicalSeg 是一个简单易使用的 3D 医学图像分割工具包，支持�
 
 
 
-**MedicalSeg 目前正在开发中！如果您在使用中发现任何问题，或想分享任何开发建议，请提交 github issue 或扫描以下微信二维码加入我们。**
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/48433081/162115375-2dba8796-5184-4793-8efa-b142734fe734.png" width="20%" height="20%">
-</p>
 
 ## Contents
 1. [模型性能](##模型性能)
 2. [快速开始](##快速开始)
 3. [代码结构](#代码结构)
-4. [TODO](#TODO)
-5. [致谢](#致谢)
+
 
 ## 模型性能
 
@@ -105,14 +100,3 @@ MedicalSeg 是一个简单易使用的 3D 医学图像分割工具包，支持�
 └── visualize.ipynb # 用于进行 3D 可视化
 ```
 
-## TODO
-未来，我们想在这几个方面来发展 MedicalSeg。
-- [ ] 增加带有预训练加速，自动化参数配置的高精度 PP-nnunet 模型。
-- [ ] 增加在 LITs 挑战中的 Top 1 肝脏分割算法。
-- [ ] 增加 3D 椎骨可视化测量系统。
-- [ ] 增加在多个数据上训练的预训练模型。
-
-
-## 致谢
-- 非常感谢 [Lin Han](https://github.com/linhandev), [Lang Du](https://github.com/justld), [onecatcn](https://github.com/onecatcn) 对我们仓库的贡献。
-- 非常感谢 [itkwidgets](https://github.com/InsightSoftwareConsortium/itkwidgets) 强大的3D可视化功能。

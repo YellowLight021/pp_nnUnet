@@ -46,8 +46,7 @@ import functools
 import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), ".."))
-sys.path.append("..")
-print(sys.path)
+sys.path.append()
 from prepare import Prep
 from preprocess_utils import HUnorm, resample
 from medicalseg.utils import wrapped_partial
@@ -67,11 +66,11 @@ urls = {
 class Prep_lung_coronavirus(Prep):
     def __init__(self):
         super().__init__(
-            dataset_root=r"D:\data\lung_coronavirus",
-            raw_dataset_dir=r"lung_coronavirus_raw",
+            dataset_root="data/lung_coronavirus",
+            raw_dataset_dir="lung_coronavirus_raw/",
             images_dir="20_ncov_scan",
             labels_dir="lung_mask",
-            phase_dir=r"lung_coronavirus_phase0",
+            phase_dir="lung_coronavirus_phase0/",
             urls=urls,
             valid_suffix=("nii.gz", "nii.gz"),
             filter_key=(None, None),

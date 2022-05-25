@@ -11,19 +11,13 @@ MedicalSeg is an easy-to-use 3D medical image segmentation toolkit that supports
 </p>
 
 
-**MedicalSeg is currently under development! If you find any problem using it or want to share any future develop suggestions, please open a github issue or join us by scanning the following wechat QR code.**
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/48433081/162115375-2dba8796-5184-4793-8efa-b142734fe734.png" width="20%" height="20%">
-</p>
 
 
 ## Contents
 1. [Performance](##Performance)
 2. [Quick Start](##QuickStart)
 3. [Structure](#Structure)
-4. [TODO](#TODO)
-5. [Acknowledgement](#Acknowledgement)
 
 ## Performance
 
@@ -105,13 +99,5 @@ This part shows you the whole picture of our repository, which is easy to expand
 └── visualize.ipynb # You can try to visualize the result use this file.
 ```
 
-## TODO
-We have several thoughts in mind about what should our repo focus on.
-- [ ] Add PP-nnunet with acceleration in preprocess, automatic configuration for all dataset and better performance compared to nnunet.
-- [ ] Add top 1 liver segmentation algorithm on LITS challenge.
-- [ ] Add 3D Vertebral Measurement System.
-- [ ] Add pretrain model on various dataset.
 
-## Acknowledgement
-- Many thanks to [Lin Han](https://github.com/linhandev), [Lang Du](https://github.com/justld), [onecatcn](https://github.com/onecatcn) for their contribution in  our repository
-- Many thanks to [itkwidgets](https://github.com/InsightSoftwareConsortium/itkwidgets) for their powerful visualization toolkit that we used to present our visualizations.
+

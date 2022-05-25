@@ -19,7 +19,7 @@ import sys
 
 LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(LOCAL_PATH, '..', '..'))
-from tqdm import tqdm
+
 import yaml
 import numpy as np
 import functools

@@ -143,7 +143,7 @@ class Prep:
 
         for f in files:
             extract_path = os.path.join(self.raw_data_path,
-                                        f.split("\\")[-1].split('.')[0])
+                                        f.split("/")[-1].split('.')[0])
             uncompress_tool._uncompress_file(
                 f, extract_path, delete_file=False, print_progress=True)
 
@@ -435,7 +435,7 @@ class Prep:
                 "label": self.label_files[i]
             }  # nii.gz filename
             infor_dict = self.set_image_infor(image_name, infor_dict)
-            json_dict['training'][image_name.split("\\")[-1].split(".")[
+            json_dict['training'][image_name.split("/")[-1].split(".")[
                 0]] = infor_dict
 
         json_dict['test'] = {}

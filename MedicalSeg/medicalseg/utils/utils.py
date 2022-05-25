@@ -176,7 +176,6 @@ def get_image_list(image_path, valid_suffix=None, filter_key=None):
                 .format(image_path, valid_suffix))
 
     # load image in a directory
-
     elif os.path.isdir(image_path):
         for root, dirs, files in os.walk(image_path):
             for f in files:
