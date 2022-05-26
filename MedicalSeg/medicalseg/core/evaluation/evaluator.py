@@ -1,5 +1,8 @@
-
-
+import sys
+import os
+sys.path.insert(0,"../../..")
+LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(LOCAL_PATH, '..', '..'))
 
 import collections
 import inspect
@@ -469,3 +472,10 @@ def nnunet_evaluate_folder():
                                                                        "information.")
     args = parser.parse_args()
     return evaluate_folder(args.ref, args.pred, args.l)
+
+if __name__=="__main__":
+    import pickle
+    res=nnunet_evaluate_folder()
+    with open("ensemble_log.pkl", 'wb') as f:
+        pickle.dump(res, f)
+    print("dice is{}".format(res['mean']['1']['Dice']))

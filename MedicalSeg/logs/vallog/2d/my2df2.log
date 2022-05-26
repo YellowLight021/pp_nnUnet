@@ -1,0 +1,105 @@
+###############################################
+I am running the following nnUNet: 2d
+My trainer class is:  <class 'medicalseg.core.training.network_training.nnUNetTrainerV2.nnUNetTrainerV2'>
+For that I will be using the following configuration:
+num_classes:  1
+modalities:  {0: 'CT'}
+use_mask_for_norm OrderedDict([(0, False)])
+keep_only_largest_region None
+min_region_size_per_class None
+min_size_per_class None
+normalization_schemes OrderedDict([(0, 'CT')])
+stages...
+
+stage:  0
+{'batch_size': 12, 'num_pool_per_axis': [7, 7], 'patch_size': array([512, 512]), 'median_patient_size_in_voxels': array([252, 512, 512]), 'current_spacing': array([1.24497998, 0.78515625, 0.78515625]), 'original_spacing': array([1.24497998, 0.78515625, 0.78515625]), 'pool_op_kernel_sizes': [[2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2]], 'conv_kernel_sizes': [[3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3]], 'do_dummy_2D_data_aug': False}
+
+I am using stage 0 from these plans
+I am using batch dice + CE loss
+
+I am using data from this folder:  /home/aistudio/Dataset/nnUnet_preprocessed/Task006_Lung/nnUNetData_plans_v2.1_2D
+###############################################
+2022-05-26 11:32:36.303762: loading checkpoint /home/aistudio/Dataset/nnUnet_trained_models/nnUNet/2d/Task006_Lung/nnUNetTrainerV2__nnUNetPlansv2.1/fold_2/model_best.model train= False
+loading dataset
+loading all case properties
+2022-05-26 11:32:36.762547: Using splits from existing split file: /home/aistudio/Dataset/nnUnet_preprocessed/Task006_Lung/splits_final.pkl
+2022-05-26 11:32:36.762789: The split file contains 5 splits.
+2022-05-26 11:32:36.762846: Desired fold for training: 2
+2022-05-26 11:32:36.762884: This split has 50 training and 13 validation cases.
+lung_001 (2, 304, 452, 452)
+debug: mirroring True mirror_axes (0, 1)
+lung_005 (2, 329, 427, 427)
+debug: mirroring True mirror_axes (0, 1)
+lung_009 (2, 301, 535, 535)
+debug: mirroring True mirror_axes (0, 1)
+lung_026 (2, 227, 509, 509)
+debug: mirroring True mirror_axes (0, 1)
+lung_037 (2, 126, 509, 509)
+debug: mirroring True mirror_axes (0, 1)
+lung_044 (2, 282, 560, 560)
+debug: mirroring True mirror_axes (0, 1)
+lung_047 (2, 636, 512, 512)
+debug: mirroring True mirror_axes (0, 1)
+lung_049 (2, 291, 459, 459)
+debug: mirroring True mirror_axes (0, 1)
+lung_074 (2, 369, 408, 408)
+debug: mirroring True mirror_axes (0, 1)
+lung_078 (2, 115, 394, 394)
+debug: mirroring True mirror_axes (0, 1)
+lung_080 (2, 450, 402, 402)
+debug: mirroring True mirror_axes (0, 1)
+lung_083 (2, 256, 509, 509)
+debug: mirroring True mirror_axes (0, 1)
+lung_086 (2, 267, 509, 509)
+debug: mirroring True mirror_axes (0, 1)
+2022-05-26 11:49:50.611716: finished prediction
+2022-05-26 11:49:50.612100: evaluation of raw predictions
+2022-05-26 11:50:08.372841: determining postprocessing
+Foreground vs background
+before: 0.41423621434662805
+after:  0.3698406759698964
+Only one class present, no need to do each class separately as this is covered in fg vs bg
+done
+for which classes:
+[]
+min_object_sizes
+None
+done
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+no resampling necessary
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: True lowres axis [0]
+separate z, order in z is 0 order inplane is 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: True lowres axis [0]
+separate z, order in z is 0 order inplane is 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1

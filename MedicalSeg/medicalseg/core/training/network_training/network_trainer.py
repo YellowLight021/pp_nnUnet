@@ -70,7 +70,7 @@ class NetworkTrainer(object):
         self.dataset_tr = self.dataset_val = None  # do not need to be used, they just appear if you are using the suggested load_dataset_and_do_split
 
         ################# THESE DO NOT NECESSARILY NEED TO BE MODIFIED #####################
-        self.patience = 50
+        self.patience = 10
         self.val_eval_criterion_alpha = 0.9  # alpha * old + (1-alpha) * new
         # if this is too low then the moving average will be too noisy and the training may terminate early. If it is
         # too high the training will take forever
@@ -103,7 +103,7 @@ class NetworkTrainer(object):
         #     self.use_progress_bar = bool(int(os.environ['nnunet_use_progress_bar']))
 
         ################# Settings for saving checkpoints ##################################
-        self.save_every = 50
+        self.save_every = 1
         self.save_latest_only = True  # if false it will not store/overwrite _latest but separate files each
         # time an intermediate checkpoint is created
         self.save_intermediate_checkpoints = True  # whether or not to save checkpoint_latest
@@ -570,7 +570,7 @@ class NetworkTrainer(object):
 
             # if patience has reached its maximum then finish training (provided lr is low enough)
             if self.epoch - self.best_epoch_based_on_MA_tr_loss > self.patience:
-                if self.optimizer.param_groups[0]['lr'] > self.lr_threshold:
+                if self.optimizer.get_lr() > self.lr_threshold:
                     # self.print_to_log_file("My patience ended, but I believe I need more time (lr > 1e-6)")
                     self.best_epoch_based_on_MA_tr_loss = self.epoch - self.patience // 2
                 else:

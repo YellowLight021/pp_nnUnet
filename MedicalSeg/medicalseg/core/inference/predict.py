@@ -260,7 +260,7 @@ def predict_cases(model, list_of_lists, output_filenames, folds, save_npz, num_t
     # first load the postprocessing properties if they are present. Else raise a well visible warning
     if not disable_postprocessing:
         results = []
-        pp_file = join(model, "postprocessing.json")
+        pp_file = join(model,"fold_"+str(folds[0]), "postprocessing.json")
         if isfile(pp_file):
             print("postprocessing...")
             shutil.copy(pp_file, os.path.abspath(os.path.dirname(output_filenames[0])))

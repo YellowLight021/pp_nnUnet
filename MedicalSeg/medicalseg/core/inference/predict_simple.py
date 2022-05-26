@@ -6,6 +6,7 @@ import sys, os
 sys.path.insert(0,"..")
 sys.path.insert(0,"../..")
 sys.path.insert(0,"../../..")
+sys.path.insert(0,"../../../tools")
 # print(sys.path)
 from medicalseg.core.inference.predict import predict_from_folder
 from paths import default_plans_identifier, network_training_output_dir, default_cascade_trainer, default_trainer

@@ -54,7 +54,7 @@
 
 ## 第四步：数据格式转换
 
-1、配置路径信息，将paths.py文件中的路径改成，刚刚新建Dataset文件夹的对应路径。如图![images](images/path_config.png)  
+1、配置路径信息，将paths.py文件中的路径改成，刚刚新建Dataset文件夹的对应路径。如图![images](images/path_config.png) 
 
 2、cd tools/experiment_planning。
 
@@ -93,22 +93,49 @@ python run_training.py 3d_lowres nnUNetTrainerV2 6 0 --max_num_epochs 1000 --num
 
 4、3DUnet-cascade模型训练：
 ```
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2 6 4 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2 6 3 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2 6 2 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2 6 1 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2 6 0 --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 3 --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 2 --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 1 --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 0 --max_num_epochs 1000 --num_batches_per_epoch 250
 ```
 
 5、注意训练3DUnet-cascade模型时候必须要先训练3dlower，3dlower训练完成后会输出predict的文件作为cascade的补充输入。
 
 
 
-6、模型的训练日志都放在log文件夹下了。模型参数的链接：链接：https://pan.baidu.com/s/1yeVGV8dcXc4-GdoaCu6Wwg 
-提取码：nm5d 
---来自百度网盘超级会员V6的分享
+6、模型的训练日志都放在log文件夹下了。模型参数的链接： 链接：https://pan.baidu.com/s/1OZSvdstuAOLZ8haR3pNl9g 提取码：dzxs 
 
-## 第七步：模型inference
+
+## 第七步：模型evaluation
+1、对3DUnet-cascade进行验证
+```
+1、python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 -val --valbest
+2、python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 -val --valbest
+3、python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 -val --valbest
+4、python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 -val --valbest
+5、python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 -val --valbest
+6、交叉验证后得到最佳配置为fold3的dice值最高达到69.2%，验证日志在log下
+```
+2、对2DUnet进行交叉验证
+```
+1、python run_training.py 2d nnUNetTrainerV2 6 4 -val --valbest
+
+2、python run_training.py 2d nnUNetTrainerV2 6 4 -val --valbest
+3、python run_training.py 2d nnUNetTrainerV2 6 4 -val --valbest
+4、python run_training.py 2d nnUNetTrainerV2 6 4 -val --valbest
+5、python run_training.py 2d nnUNetTrainerV2 6 4 -val --valbest
+6、交叉验证后得到最佳配置为fold3的dice值最高达到69.3%，验证日志在log下
+```
+2、对ensmble 2DUnet+ 3DUnet Avg进行验证
+```
+1、对2dUnet和3DUNet的validation进行ensemble predict：cd到 medicalseg/core/inference
+2、python ensemble_predictions.py --folders 2d的validation路径 3dcascade的validation路径 -o 输出路径 --p /home/aistudio/postprocessing.json
+3、cd medicalseg/core/evaluation
+4、执行验证代码：python evaluator.py -ref 验证集上gt路径 -pred 验证集上的predict路径 -l 1
+5、执行结果fold3的dice达到了72.16%
+```
+## 第八步：模型inference
 
 1、cd medicalseg/core/inference
 
@@ -118,6 +145,9 @@ python run_training.py 3d_cascade_fullres nnUNetTrainerV2 6 0 --max_num_epochs 1
 
 4、对3d_cascade_fullres和2d的预测结果进行ensemble，执行命令：python ensemble_predictions.py -f 2d的输出路径 3d的输出路径 -o ensemble_2d_cascade_infer
 
+5、ensemble预测结果展示如下图![images](images/predict.png) 
+
+6、原图gt效果如图结果如图![images](images/gt.png) 
 ## 模型部署
 1、静态图导出：python nn_unet_export.py --plan 模型.pkl --check_point 模型.model --stage 0或1 --save_dir 期望的静态图保存路径
 
@@ -128,7 +158,7 @@ python run_training.py 3d_cascade_fullres nnUNetTrainerV2 6 0 --max_num_epochs 1
    sh run-nnUnet.sh
    ```
   
-## 在AI Studio上[运行本项目](项目“nnUnet调试”共享链接(有效期三天)：https://aistudio.baidu.com/studio/project/partial/verify/3874882/2506bf5003b64facb015a538c99142f2) 
+## 在AI Studio上[运行本项目](项目“nnUnet调试”共享链接(有效期三天)：https://aistudio.baidu.com/studio/project/partial/verify/3874882/16eb61c02a69473e9635e7916a88cc7c) 
 1、fork项目后按照markdown提示按照顺序自行运行
 
 
