@@ -1,0 +1,204 @@
+###############################################
+I am running the following nnUNet: 3d_cascade_fullres
+My trainer class is:  <class 'medicalseg.core.training.network_training.nnUNetTrainerV2_CascadeFullRes.nnUNetTrainerV2CascadeFullRes'>
+For that I will be using the following configuration:
+num_classes:  1
+modalities:  {0: 'CT'}
+use_mask_for_norm OrderedDict([(0, False)])
+keep_only_largest_region None
+min_region_size_per_class None
+min_size_per_class None
+normalization_schemes OrderedDict([(0, 'CT')])
+stages...
+
+stage:  0
+{'batch_size': 2, 'num_pool_per_axis': [4, 5, 5], 'patch_size': array([ 80, 192, 160]), 'median_patient_size_in_voxels': array([133, 271, 271]), 'current_spacing': array([2.35358718, 1.48430795, 1.48430795]), 'original_spacing': array([1.24497998, 0.78515625, 0.78515625]), 'do_dummy_2D_data_aug': False, 'pool_op_kernel_sizes': [[2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [1, 2, 2]], 'conv_kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]]}
+
+stage:  1
+{'batch_size': 2, 'num_pool_per_axis': [4, 5, 5], 'patch_size': array([ 80, 192, 160]), 'median_patient_size_in_voxels': array([252, 512, 512]), 'current_spacing': array([1.24497998, 0.78515625, 0.78515625]), 'original_spacing': array([1.24497998, 0.78515625, 0.78515625]), 'do_dummy_2D_data_aug': False, 'pool_op_kernel_sizes': [[2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [1, 2, 2]], 'conv_kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]]}
+
+I am using stage 1 from these plans
+I am using batch dice + CE loss
+
+I am using data from this folder:  /home/aistudio/Dataset/nnUnet_preprocessed/Task006_Lung/nnUNetData_plans_v2.1
+###############################################
+2022-05-26 10:59:42.448941: loading checkpoint /home/aistudio/Dataset/nnUnet_trained_models/nnUNet/3d_cascade_fullres/Task006_Lung/nnUNetTrainerV2CascadeFullRes__nnUNetPlansv2.1/fold_3/model_best.model train= False
+loading dataset
+loading all case properties
+2022-05-26 10:59:44.582563: Using splits from existing split file: /home/aistudio/Dataset/nnUnet_preprocessed/Task006_Lung/splits_final.pkl
+2022-05-26 10:59:44.583365: The split file contains 5 splits.
+2022-05-26 10:59:44.583463: Desired fold for training: 3
+2022-05-26 10:59:44.583506: This split has 51 training and 12 validation cases.
+lung_014 (2, 296, 484, 484)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 296, 484, 484)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 36, 72, 108, 144, 180, 216], [0, 73, 146, 219, 292], [0, 65, 130, 194, 259, 324]]
+number of tiles: 210
+computing Gaussian
+done
+prediction done
+lung_016 (2, 228, 507, 507)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 228, 507, 507)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 37, 74, 111, 148], [0, 79, 158, 236, 315], [0, 69, 139, 208, 278, 347]]
+number of tiles: 150
+using precomputed Gaussian
+prediction done
+lung_018 (2, 274, 560, 560)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 274, 560, 560)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 39, 78, 116, 155, 194], [0, 92, 184, 276, 368], [0, 80, 160, 240, 320, 400]]
+number of tiles: 180
+using precomputed Gaussian
+prediction done
+lung_020 (2, 252, 442, 442)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 252, 442, 442)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 34, 69, 103, 138, 172], [0, 83, 167, 250], [0, 70, 141, 212, 282]]
+number of tiles: 120
+using precomputed Gaussian
+prediction done
+lung_023 (2, 267, 535, 535)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 267, 535, 535)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 37, 75, 112, 150, 187], [0, 86, 172, 257, 343], [0, 75, 150, 225, 300, 375]]
+number of tiles: 180
+using precomputed Gaussian
+prediction done
+lung_027 (2, 264, 560, 560)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 264, 560, 560)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 37, 74, 110, 147, 184], [0, 92, 184, 276, 368], [0, 80, 160, 240, 320, 400]]
+number of tiles: 180
+using precomputed Gaussian
+prediction done
+lung_028 (2, 251, 594, 594)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 251, 594, 594)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 34, 68, 103, 137, 171], [0, 80, 161, 241, 322, 402], [0, 72, 145, 217, 289, 362, 434]]
+number of tiles: 252
+using precomputed Gaussian
+prediction done
+lung_029 (2, 255, 551, 551)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 255, 551, 551)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 35, 70, 105, 140, 175], [0, 90, 180, 269, 359], [0, 78, 156, 235, 313, 391]]
+number of tiles: 180
+using precomputed Gaussian
+prediction done
+lung_043 (2, 259, 502, 502)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 259, 502, 502)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 36, 72, 107, 143, 179], [0, 78, 155, 232, 310], [0, 68, 137, 205, 274, 342]]
+number of tiles: 180
+using precomputed Gaussian
+prediction done
+lung_057 (2, 225, 509, 509)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 225, 509, 509)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 36, 72, 109, 145], [0, 79, 158, 238, 317], [0, 70, 140, 209, 279, 349]]
+number of tiles: 150
+using precomputed Gaussian
+prediction done
+lung_058 (2, 241, 560, 560)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 241, 560, 560)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 32, 64, 97, 129, 161], [0, 92, 184, 276, 368], [0, 80, 160, 240, 320, 400]]
+number of tiles: 180
+using precomputed Gaussian
+prediction done
+lung_084 (2, 241, 509, 509)
+debug: mirroring True mirror_axes (0, 1, 2)
+step_size: 0.5
+do mirror: True
+data shape: (2, 241, 509, 509)
+patch size: [ 80 192 160]
+steps (x, y, and z): [[0, 32, 64, 97, 129, 161], [0, 79, 158, 238, 317], [0, 70, 140, 209, 279, 349]]
+number of tiles: 180
+using precomputed Gaussian
+prediction done
+2022-05-26 12:20:28.819239: finished prediction
+2022-05-26 12:20:28.819571: evaluation of raw predictions
+2022-05-26 12:20:42.777615: determining postprocessing
+Foreground vs background
+before: 0.6528256403839984
+after:  0.6922034970017426
+Removing all but the largest foreground region improved results!
+for_which_classes [1]
+min_valid_object_sizes None
+Only one class present, no need to do each class separately as this is covered in fg vs bg
+done
+for which classes:
+[[1]]
+min_object_sizes
+None
+done
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: True lowres axis [0]
+separate z, order in z is 0 order inplane is 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: True lowres axis [0]
+separate z, order in z is 0 order inplane is 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
+force_separate_z: None interpolation order: 1
+separate z: False lowres axis None
+no separate z, order 1
