@@ -76,28 +76,28 @@
 
 2、2d模式unet训练命令：
 ```
-python run_training.py 2d nnUNetTrainerV2 6 4 --npz --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 2d nnUNetTrainerV2 6 3 --npz --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 2d nnUNetTrainerV2 6 2 --npz --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 2d nnUNetTrainerV2 6 1 --npz --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 2d nnUNetTrainerV2 6 0 --npz --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 2d nnUNetTrainerV2 6 4 --npz --max_num_epochs 70 --num_batches_per_epoch 250
+python run_training.py 2d nnUNetTrainerV2 6 3 --npz --max_num_epochs 70 --num_batches_per_epoch 250
+python run_training.py 2d nnUNetTrainerV2 6 2 --npz --max_num_epochs 70 --num_batches_per_epoch 250
+python run_training.py 2d nnUNetTrainerV2 6 1 --npz --max_num_epochs 70 --num_batches_per_epoch 250
+python run_training.py 2d nnUNetTrainerV2 6 0 --npz --max_num_epochs 70 --num_batches_per_epoch 250
 ```
 3、3dlower模型unet训练：
 ```
-python run_training.py 3d_lowres nnUNetTrainerV2 6 4 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_lowres nnUNetTrainerV2 6 3 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_lowres nnUNetTrainerV2 6 2 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_lowres nnUNetTrainerV2 6 1 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_lowres nnUNetTrainerV2 6 0 --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 3d_lowres nnUNetTrainerV2 6 4 --max_num_epochs 55 --num_batches_per_epoch 250
+python run_training.py 3d_lowres nnUNetTrainerV2 6 3 --max_num_epochs 55 --num_batches_per_epoch 250
+python run_training.py 3d_lowres nnUNetTrainerV2 6 2 --max_num_epochs 55 --num_batches_per_epoch 250
+python run_training.py 3d_lowres nnUNetTrainerV2 6 1 --max_num_epochs 55 --num_batches_per_epoch 250
+python run_training.py 3d_lowres nnUNetTrainerV2 6 0 --max_num_epochs 55 --num_batches_per_epoch 250
 ```
 
 4、3DUnet-cascade模型训练：
 ```
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 3 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 2 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 1 --max_num_epochs 1000 --num_batches_per_epoch 250
-python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 0 --max_num_epochs 1000 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 4 --max_num_epochs 110 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 3 --max_num_epochs 110 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 2 --max_num_epochs 110 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 1 --max_num_epochs 110 --num_batches_per_epoch 250
+python run_training.py 3d_cascade_fullres nnUNetTrainerV2CascadeFullRes 6 0 --max_num_epochs 110 --num_batches_per_epoch 250
 ```
 
 5、注意训练3DUnet-cascade模型时候必须要先训练3dlower，3dlower训练完成后会输出predict的文件作为cascade的补充输入。
